@@ -1,0 +1,81 @@
+body {
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	/*font-size: 16px;*/
+	/* 
+	1.7 point bigger then the prdifined line height 
+	*/
+	line-height: 1.7;
+	color: $color-grey-dark;
+	padding: 3rem;
+	box-sizing: border-box; 
+}
+
+.heading-primary {
+	color: $color-white;
+	text-transform: uppercase;
+	/* 
+	determines whether or not the back part of a trasnformed element is visible when facing the viewer
+	*/
+	backface-visibility: hidden;
+	margin-bottom: 6rem;
+	
+	&--main {
+		display: block;
+		font-size: 6rem;
+		font-weight: 400;
+		letter-spacing: 3.5rem;
+
+		/* 
+		these are properties that required for the animation to work
+		*/
+		animation-name: moveInLeft;
+		animation-duration: 1s;
+		/*ease-out is faster at the beginning and slower towards the end of the animation*/
+		animation-timing-function: ease-out;
+		/*animation-iteration-count tells how many times the animation happens*/
+		/*animation-iteration-count: 3;
+		animation-delay: 3s;*/
+	}
+
+	&--sub {
+		display: block;
+		font-size: 2rem;
+		font-weight: 700;
+		letter-spacing: 1.74rem;
+		animation: moveInRight 1s ease-out;
+	}
+}
+
+.heading-secondary {
+	display: inline-block;
+	font-size: 3.5rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+	// make the background to fill up only the area where the text is
+	-webkit-background-clip: text;
+	// text needs to be transparent in order to see the background under it
+	color: transparent;
+	letter-spacing: .2rem;
+	transition: all .1s;
+
+	&:hover {
+		transform: skewY(2deg) skewX(15deg) scale(1.1);
+		text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+	}
+}
+
+.heading-tertiary {
+	font-size: $default-font-size;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.paragraph {
+	font-size: $default-font-size;
+
+	&:not(:last-child) {
+		margin-bottom: 6rem;
+	}
+}

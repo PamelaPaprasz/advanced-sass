@@ -1,0 +1,15 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	/*
+	border-box changes the box model so borders and paddings are no longer added to the total width
+	*/
+	box-sizing: inherit;
+}
+	
+html {
+	// this defines what 1 rem is
+	font-size: 62.5%;
+}

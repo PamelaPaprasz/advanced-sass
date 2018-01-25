@@ -1,0 +1,53 @@
+.header {
+	/* 
+	the height of the element is 95% of the windowheight 
+	*/
+	height: 95vh;
+	/* 
+	the gradient will go from the left to right bottom corner 
+	*/
+	background-image: linear-gradient(
+		to right bottom, 
+		rgba($color-primary-light, 0.8), 
+		rgba($color-primary-dark, 0.8)), 
+	url(../img/hero.jpg);
+	background-size: cover;
+	/* 
+	the top of the image never gets croped if we change the viewport size 
+	*/
+	background-position: top;
+	/* 
+	it let us to define a poligon in wich our image is still visible, 
+	you define the corners going from left to right 
+	counting how much you wanna the poligon to go on the x or the y cordinates
+	*/
+	position: relative;
+	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+	&__logo-box {
+		position: absolute;
+		/* 
+		to use this we have to set the parent element's position to relative 
+		so the top and left properties will now where top count the 40px from
+		*/
+		top: 4rem;
+		left: 4rem;	
+	}
+
+	&__logo {
+		height: 3.5rem;	
+	}
+
+	&__text-box {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		/* 
+		translate values are x and y, 
+		these values are no longer in relation to the parent element but the element itself
+		so the element will be shifterd half of the width to the left side and the same for the height
+		*/
+		transform: translate(-50%, -50%);
+		text-align: center;	
+	}
+}
