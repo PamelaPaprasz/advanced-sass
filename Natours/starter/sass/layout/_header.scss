@@ -22,6 +22,7 @@
 	counting how much you wanna the poligon to go on the x or the y cordinates
 	*/
 	position: relative;
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
 	&__logo-box {
