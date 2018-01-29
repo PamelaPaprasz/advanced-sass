@@ -4,6 +4,7 @@
 	:link :hover etc are pseudo classes and we use them to style elements under a special condition,
 	:link is a special state of a selector
 	*/
+	&,
 	&:link,
 	&:visited {
 		text-transform: uppercase;
@@ -14,6 +15,10 @@
 		transition: all .2s;
 		position: relative;
 		font-size: $default-font-size;
+
+		// Change the button element default style
+		border: none;
+		cursor: pointer;
 
 	}
 
@@ -27,7 +32,9 @@
 		}
 	}
 
-	&:active {
+	&:active,
+	&:focus  {
+		outline: none;
 		transform: translateY(-1px);
 		box-shadow: 0 .5rem 1rem rgba($color-black, .2);
 	}

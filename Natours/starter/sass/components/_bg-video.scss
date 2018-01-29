@@ -1,0 +1,19 @@
+.bg-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+	opacity: .15;
+	overflow: hidden;
+
+	// video wider than the window and less high than the section, so we fixed it this way
+	&__content {
+        height: 100%;
+        width: 100%;
+        // almost like background size cover
+        object-fit: cover;
+    }
+
+}
