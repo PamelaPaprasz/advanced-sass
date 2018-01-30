@@ -40,15 +40,13 @@
 	}
 
 	&__text-box {
-		position: absolute;
-		top: 50%;
-		left: 50%;
+		@include center-vertical-horizontal;
 		/* 
 		translate values are x and y, 
 		these values are no longer in relation to the parent element but the element itself
 		so the element will be shifterd half of the width to the left side and the same for the height
 		*/
-		transform: translate(-50%, -50%);
+		// transform: translate(-50%, -50%);
 		text-align: center;	
 	}
 }
