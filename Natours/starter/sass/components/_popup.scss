@@ -1,0 +1,90 @@
+.popup {
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba($color-black, .8);
+	z-index: 9999;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s;
+
+	// applies to the element which is the target when we click on a button
+	&:target {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	// we want to style the content when the popup become the target in order to make it move towards us
+	&:target &:__content {
+
+	}
+
+	&__close {
+		&:link,
+		&:visited {
+			color: $color-grey-dark;
+			position: absolute;
+			top: 2.5rem;
+			right: 2.5rem;
+			font-size: 3rem;
+			text-decoration: none;
+			display: inline-block;
+			transition: all .2s;
+		}
+
+		&:hover {
+			color: $color-primary;
+		}
+	}
+
+	&__content {
+		@include center-vertical-horizontal;
+		width: 75%;
+		background-color: $color-white;
+		box-shadow: 0 2rem 4rem rgba($color-black, .2);
+		border-radius: 3px;
+		display: table;
+		// in order to see the border radius
+		overflow: hidden;
+	}
+
+	&__left {
+		width: 33.33333%;
+		// the browser will automaticly give the same height tho all cell element
+		// using float to arrange the elements caused problem with the height
+		display: table-cell;
+	}
+
+	&__right {
+		width: 66.66667%;
+		display: table-cell;
+		vertical-align: middle;
+		padding: 3rem 5rem;
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+		margin-bottom: 4rem;
+
+		-moz-column-count: 2;
+		-moz-column-gap: 4rem; 
+		-moz-column-rule: 1px solid $color-grey-light-2; 
+
+		// cerateing columns
+		column-count: 2;
+		column-gap: 4rem; // 1em = 14 px coz em is always the fontsize of the current element
+		column-rule: 1px solid $color-grey-light-2; // it is like border but between the columns
+
+		-moz-hyphens: auto;
+		-ms-hyphens: auto;
+		-webkit-hyphens: auto;
+		hyphens: auto;
+	}
+}
