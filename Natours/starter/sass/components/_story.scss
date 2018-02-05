@@ -24,8 +24,8 @@
 		// shape-outside property defines where the content floats around the element
 		//first define the radius of the element, 50% means it is the 50% of the height and width
 		// in order to work the element must be floated and defined the dimensions like width and height
-		// -webkit-shape-outside: circle(50% at 50% 50%);
-		// shape-outside: circle(50% at 50% 50%);
+		-webkit-shape-outside: circle(50% at 50% 50%);
+		shape-outside: circle(50% at 50% 50%);
 		// -webkit-clip-path: circle(50% at 50% 50%);
 		// clip-path: circle(50% at 50% 50%);
 	}
@@ -34,9 +34,9 @@
 	&__image {
 		// the parent shape of this image has a defined dimension that is why 100% works well here
 		height: 100%;
-		transform: translateX(-4rem) scale(1.4);
 		backface-visibility: hidden;
-		transition: all .5s;
+		transform: translateX(-4rem) scale(1.4);
+		transition: transform .5s;
 	}
 
 	&__text {

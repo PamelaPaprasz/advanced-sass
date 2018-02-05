@@ -7,7 +7,6 @@ body {
 	*/
 	line-height: 1.7;
 	color: $color-grey-dark;
-	padding: 3rem;
 	box-sizing: border-box; 
 }
 
@@ -33,6 +32,11 @@ body {
 		animation-duration: 1s;
 		/*ease-out is faster at the beginning and slower towards the end of the animation*/
 		animation-timing-function: ease-out;
+
+		@include respond(phone) {
+			letter-spacing: 1rem;
+			font-family: 5rem;
+		}
 		/*animation-iteration-count tells how many times the animation happens*/
 		/*animation-iteration-count: 3;
 		animation-delay: 3s;*/
@@ -44,6 +48,10 @@ body {
 		font-weight: 700;
 		letter-spacing: 1.74rem;
 		animation: moveInRight 1s ease-out;
+
+		@include respond(phone) {
+			letter-spacing: .5rem;
+		}
 	}
 }
 
@@ -59,6 +67,14 @@ body {
 	color: transparent;
 	letter-spacing: .2rem;
 	transition: all .1s;
+
+	@include respond(tab-port) {
+		font-size: 3rem;
+	}
+
+	@include respond(phone) {
+		font-size: 2.5rem;
+	}
 
 	&:hover {
 		transform: skewY(2deg) skewX(15deg) scale(1.1);
