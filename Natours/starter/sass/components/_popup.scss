@@ -1,5 +1,6 @@
 .popup {
 	height: 100vh;
+	max-height: 100vh;
 	width: 100%;
 	position: fixed;
 	top: 0;
@@ -9,6 +10,7 @@
 	opacity: 0;
 	visibility: hidden;
 	transition: all .3s;
+	overflow-y: auto;
 
 	// applies to the element which is the target when we click on a button
 	// OPEN STATE of the popup
@@ -56,6 +58,10 @@
 		transform: translate(-50%, -50%) scale(.25);
 		// .2s delay so first we allow the black background to come in and then the white content
 		transition: all .4s .2s;
+
+		@include respond(tab-land) {
+			display: inline-block;
+		}
 	}
 
 	&__left {
@@ -63,6 +69,13 @@
 		// the browser will automaticly give the same height tho all cell element
 		// using float to arrange the elements caused problem with the height
 		display: table-cell;
+
+		@include respond(tab-land) {
+			display: block;
+			margin: auto;
+			padding-top: 8rem;
+			width: 80%;
+		}
 	}
 
 	&__right {
@@ -70,11 +83,24 @@
 		display: table-cell;
 		vertical-align: middle;
 		padding: 3rem 5rem;
+
+		@include respond(tab-land) {
+			display: block;
+			width: 100%;
+			text-align: center;
+		}
 	}
 
 	&__img {
 		display: block;
 		width: 100%;
+
+		@include respond(tab-land) {
+			display: inline-block;
+			width: 49%;
+			padding: 1rem;
+		}
+
 	}
 
 	&__text {
@@ -94,5 +120,15 @@
 		-ms-hyphens: auto;
 		-webkit-hyphens: auto;
 		hyphens: auto;
+
+		@include respond(tab-land) {
+			-moz-column-count: 1;
+			-moz-column-gap: 0; 
+
+			column-count: 1;
+			column-gap: 0; 
+			margin: auto;
+			padding-bottom: 2rem;
+		}
 	}
 }
