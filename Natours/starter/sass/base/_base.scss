@@ -45,3 +45,9 @@ body {
     }
 }
 
+// use selection pseudo element in order to customize the selection style
+::selection {
+	background-color: $color-primary;
+	color: $color-white;
+}
+

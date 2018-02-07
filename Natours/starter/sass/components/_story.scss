@@ -35,10 +35,14 @@
 		// shape-outside property defines where the content floats around the element
 		//first define the radius of the element, 50% means it is the 50% of the height and width
 		// in order to work the element must be floated and defined the dimensions like width and height
-		-webkit-shape-outside: circle(50% at 50% 50%);
-		shape-outside: circle(50% at 50% 50%);
-		// -webkit-clip-path: circle(50% at 50% 50%);
-		// clip-path: circle(50% at 50% 50%);
+
+		@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+			-webkit-clip-path: circle(50% at 50% 50%);
+			clip-path: circle(50% at 50% 50%);
+			-webkit-shape-outside: circle(50% at 50% 50%);
+			shape-outside: circle(50% at 50% 50%);
+			border-radius: none;
+		}
 
 		@include respond(phone) {
 			transform: translateX(-3rem) skewX(0);

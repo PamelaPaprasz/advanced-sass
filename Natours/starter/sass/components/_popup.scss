@@ -10,7 +10,16 @@
 	opacity: 0;
 	visibility: hidden;
 	transition: all .3s;
-	overflow-y: auto;
+	// blures the background
+
+	// supports feature query asks it the certain feature is supported or not 
+	// and if it is applies the code inside the query
+	@supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+		-webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);
+		background-color: rgba($color-black, .3);	
+	}
+
 
 	// applies to the element which is the target when we click on a button
 	// OPEN STATE of the popup

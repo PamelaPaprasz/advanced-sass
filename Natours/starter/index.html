@@ -6,7 +6,12 @@
         
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
-        <link rel="stylesheet" href="css/icon-font.css">
+        <!-- 
+            we can comment out icon-font when we are done with development because it is concateneted in style.css file ld package.json
+
+        -->
+        <link rel="stylesheet" href="css/icon-font.css"> 
+
         <link rel="stylesheet" href="css/style.css">
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
         
@@ -80,9 +85,33 @@
                     </div>
                     <div class="col-1-of-2">
                         <div class="composition">
-                            <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
+
+                            <!-- RESOLUTION SWITCH and DENSITY SWITCH 2in1 
+                                 300w means the width of the picture in px 
+                                 sizes attribute specifies the approx width of picture in viewport width unit in specific screen sizes and gives a default value at the end too
+                                -->
+
+                            <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                                 alt="Photo1"
+                                 class="composition__photo composition__photo--p1"
+                                 src="img/nat-1-large.jpg">
+
+                            <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                                 alt="Photo2"
+                                 class="composition__photo composition__photo--p2"
+                                 src="img/nat-2-large.jpg">
+
+                            <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                                 alt="Photo3"
+                                 class="composition__photo composition__photo--p3"
+                                 src="img/nat-3-large.jpg">
+
+                            <!-- <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
                             <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
-                            <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+                            <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3"> -->
                         </div>
                     </div>
                 </div>
@@ -264,6 +293,13 @@
                 <div class="row">
                     <div class="story">
                         <figure class="story__shape">
+
+                            <!-- <img srcset="img/nat-8.jpg 300w, img/nat-8.jpg 1000w"
+                                 sizes="(max-width: 900px) 28vw, (max-width: 600px) 42vw, 300px"
+                                 alt="Person on a tour"
+                                 class="story__image"
+                                 src=""> -->
+
                             <img src="img/nat-8.jpg" alt="Person on a tour" class="story__image">
                             <figcaption class="story__caption">Mary Smith</figcaption>
                         </figure>
@@ -352,13 +388,14 @@
 
                 <!-- 
                     ART DIRECTION is when we define in which screen width which image will be used 
+                    we force the browser to use what we gave
                     in picture tag we can specify multiple images in one source
                 -->
                 <picture class="footer__logo">
                     <!-- if the screen width is less then 37.5em the browser is forced to use the source tag -->
                     <source srcset="img/logo-green-1x.png, img/logo-green-2x.png 2x" media="(max-width: 37.5em)">
                     <!-- in case the screen width is larger than the specified width the browser will use the img tag -->
-                    <img src="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Fill logo">
+                    <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Fill logo" src="img/logo-green-2x.png">
                 </picture>
 
                 <!-- DENSITY VALUE srcset attribute allows to choose the best of these 2 images given according to the screen that is used by the user -->

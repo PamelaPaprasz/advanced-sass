@@ -25,6 +25,7 @@
 		width: 100%;
 
 		// it hides the back part of an element
+		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
 		border-radius: 3px;
 
@@ -176,8 +177,15 @@
 	}
 
 
+	// we have to comment out the include because we need more than one option
+	// to check if the user using touch a device or 
+	// hover none checks if the device uses touch as primary input (u can not hover on touch device)
+	// hover:hover is the opposite of hover:none
+	// @include respond(tab-port) {
 
-	@include respond(tab-port) {
+		@media only screen and (max-width: 56.25em),
+			   only screen and (hover:none) {
+
 		height: auto;
 		border-radius: 3px;
 		background-color: $color-white;

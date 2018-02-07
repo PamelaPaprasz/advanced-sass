@@ -1,8 +1,8 @@
 .header {
 	/* 
-	the height of the element is 95% of the windowheight 
+	the height of the element is 85% of the windowheight 
 	*/
-	height: 95vh;
+	height: 85vh;
 	/* 
 	the gradient will go from the left to right bottom corner 
 	*/
@@ -10,7 +10,7 @@
 		to right bottom, 
 		rgba($color-primary-light, 0.8), 
 		rgba($color-primary-dark, 0.8)), 
-	url(../img/hero.jpg);
+	url(../img/hero-small.jpg);
 	background-size: cover;
 	/* 
 	the top of the image never gets croped if we change the viewport size 
@@ -22,8 +22,30 @@
 	counting how much you wanna the poligon to go on the x or the y cordinates
 	*/
 	position: relative;
-	-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+	// always add some value to the property
+	@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);	
+		height: 95vh;
+	}
+	
+	/* 
+	when the resolution is higher than 192dpi 
+	and whenever the width is larger than 600px this code will apply
+
+	safari DO NOT supports min-resolution that is why we use -webkit-min-device-pixel-ratio
+	*/
+	@media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+		   only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), 
+		   only screen and (min-width: 125em){
+		background-image: linear-gradient(
+			to right bottom, 
+			rgba($color-primary-light, 0.8), 
+			rgba($color-primary-dark, 0.8)), 
+		url(../img/hero.jpg);
+	}
+
 
 	@include respond(phone) {
 		-webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
