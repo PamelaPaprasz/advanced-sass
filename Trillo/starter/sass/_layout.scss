@@ -10,9 +10,14 @@
 }
 
 .header {
+	font-size: 1.4rem;
 	height: 7rem;
 	background-color: #fff;
 	border-bottom: var(--color-grey-light-2);
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .content {
@@ -24,10 +29,17 @@
 
 	// 1. grow 2. shrink 3. basis(width)
 	flex: 0 0 18%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .hotel-view {
 	// background-color: #fff;
+
+	//test
+	height: 80rem;
 	background-color: orangered;
 
 	flex: 1;
