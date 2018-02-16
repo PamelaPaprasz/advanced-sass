@@ -39,6 +39,15 @@ Grey dark 3: #999
 	--line: 1px solid var(--color-grey-light-2);
 }
 
+
+// we need to use scss variables because 
+// we can not include css custom property into the media query
+$bp-largest: 75em; // 1200px
+$bp-large: 68.75em; // 1100px / 16 = 68.75
+$bp-medium: 58.25em; //900px
+$bp-small: 37.5em; // 600px
+$bp-smallest: 31.25em; // 500px
+
 * {
 	margin: 0;
 	padding: 0;
@@ -53,6 +62,9 @@ Grey dark 3: #999
 html {
 	box-sizing: border-box;
 	font-size: 62.5%; // 1rem = 10px 10px(the size we want)/16px(default browser size) = 62.5%
+	@media only screen and (max-width: $bp-large) {
+		font-size: 50%;
+	}
 }
 
 body {
