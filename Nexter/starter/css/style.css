@@ -1,0 +1,68 @@
+/*
+.challenge {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: grid;
+	background: #3F3FBF;
+	width: 900px;
+	padding-left: 40px;
+  // grid-template-rows: repeat(4);
+  grid-template-rows: 100px 200px 400px 100px; // ha meghatarozzuk a sorok meretet, akkor nem kell kulon kulon megadni az egyes elemek magassagat
+  grid-template-columns: repeat(3, 250px) 190px;
+  // grid-template-columns: repeat(3, 1fr) 105px; igy nem logna tul a containeren a content
+  grid-gap: 20px;
+}
+
+.item {
+	background: #3F9DBF;
+	color: #A4FCFD;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 10px;
+}
+
+.header, .footer {
+	grid-column: 1 / -1;
+}
+
+.main-content {
+	grid-column: 1 / span 3;
+	// grid-column: 1 / 4; ez ugyanaz mint 1 / span 3
+}
+
+.sidebar {
+	grid-row: 2 / 4;
+	grid-column: 4 / -1;
+}
+ */
+.challenge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #3F3FBF;
+  width: 900px;
+  padding-left: 40px;
+  display: grid;
+  grid-template-rows: [header-start] 100px [header-end box-start] 200px [box-end main-start] 400px [main-end footer-start] 100px [footer-end];
+  grid-template-columns: repeat(3, [col-start] 250px [col-end]) 190px [grid-end];
+  grid-gap: 20px; }
+
+.item {
+  background: #3F9DBF;
+  color: #A4FCFD;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px; }
+
+.header, .footer {
+  grid-column: col-start 1 / grid-end; }
+
+.main-content {
+  grid-column: col-start 1 / col-end 3; }
+
+.sidebar {
+  grid-row: box-start / main-end;
+  grid-column: col-end 3 / grid-end; }
